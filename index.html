@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Mapper App</title>
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+   integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+   crossorigin=""/>
+        <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css">
+        <link rel="stylesheet" href="css/leaflet.awesome-markers.css">
+		<link rel="stylesheet" href="css/style.css" type="text/css">
+	</head>
+	<body>
+        <div class="container-fluid">
+            <div id="mapid"></div>
+            <div class="row">
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                    <table id="demand_table" class="table table-striped">
+                        <thead>
+                            <tr>
+                            <!-- <th scope="col">#</th> -->
+                                <th scope="col"></th>
+                                <th scope="col">Demand</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>  
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                    <table id="supply_table" class="table table-striped">
+                        <thead>
+                            <tr>
+                            <!-- <th scope="col">#</th> -->
+                                <th scope="col"></th>
+                                <th scope="col">Supply</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-12">
+                    <table id="contract_table" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Contract</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td><input id="contract_text" class="form-control" type="text"></td>
+                            </tr>
+                            <tr>
+                            <td><button id="create_button" class="btn btn-success" onclick="create(this)">Create</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+		<!-- javascript -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+   integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+   crossorigin=""></script>
+        <script type="text/javascript" src="js/leaflet.awesome-markers.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+html, body{
+    height: 100%;
+}
+
+.container-fluid {
+    height: 100%;
+}
+
+#mapid { 
+    height: 60%; 
+}
+
+tbody {
+    font-size: 12px;
+}
+
+.close {
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    opacity: 0.3;
+    right: 30px;
+}
+.close:hover {
+    opacity: 1;
+}
+
+.close:before, .close:after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 17px;
+    width: 2px;
+    background-color: #333;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.display-none {
+    display: none;
+}
+
+.leaflet-popup-content p {
+    margin: 10px 0! important;
+}
+
+.leaflet-popup-content .select-button {
+    width: 70px;
+    height: 35px;
+    font-size: 12px;
+}
