@@ -1,19 +1,13 @@
-var mymap = L.map('mapid').setView([41.025758, -97.344704], 4);
-
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiZGFuaWVsYmFsYW4xOTg5IiwiYSI6ImNqazZrYmQxZjFhZ3ozdnFnYmtuNnB2MTkifQ.vRS1P1-6nA9VXmmTzFaqvw', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 5,
-    id: 'mapbox.streets',
-    accessToken: 'your.mapbox.access.token'
-}).addTo(mymap);
-
-var data = [],
-    res = [];
-var demand_flag = false,
+var leaflet_token = "pk.eyJ1IjoiZGFuaWVsYmFsYW4xOTg5IiwiYSI6ImNqazZrYmQxZjFhZ3ozdnFnYmtuNnB2MTkifQ.vRS1P1-6nA9VXmmTzFaqvw",
+    google_map_token = "AIzaSyCqjjbTtBAknqTRgsCqUAoBte143u8ILPg",
+    mymap,
+    data = [],
+    res = [],
+    demand_flag = false,
     supply_flag = false;
 
 function geoCodeUrl(pin) {
-    var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${pin.address1.replace(/ /g, '+')},${pin.address2.replace(/ /g, '+')}&key=AIzaSyCqjjbTtBAknqTRgsCqUAoBte143u8ILPg`;
+    var url = `https://maps.googleapis.com/maps/api/geocode/json?address=${pin.address1.replace(/ /g, '+')},${pin.address2.replace(/ /g, '+')}&key=${google_map_token}`;
     return url;
 }
 
@@ -109,6 +103,15 @@ function create(ele) {
 }
 
 $(document).ready(function(){
+    mymap = L.map('mapid').setView([41.025758, -97.344704], 4);
+
+    L.tileLayer(`https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=${leaflet_token}`, {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 5,
+        id: 'mapbox.streets',
+        accessToken: leaflet_token
+    }).addTo(mymap);
+
     $.ajax({url: "http://localhost:8000/address.json", success: function(result){
         res = result;
         for (var i = 0; i < res.length; i++) {
