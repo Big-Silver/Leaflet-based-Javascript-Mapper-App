@@ -1,5 +1,6 @@
 var leaflet_token = "pk.eyJ1IjoiZGFuaWVsYmFsYW4xOTg5IiwiYSI6ImNqazZrYmQxZjFhZ3ozdnFnYmtuNnB2MTkifQ.vRS1P1-6nA9VXmmTzFaqvw",
     google_map_token = "AIzaSyCqjjbTtBAknqTRgsCqUAoBte143u8ILPg",
+    api_url = "http://localhost:8000",
     mymap,
     data = [],
     res = [],
@@ -112,10 +113,10 @@ $(document).ready(function(){
         accessToken: leaflet_token
     }).addTo(mymap);
 
-    $.ajax({url: "http://localhost:8000/address.json", success: function(result){
+    $.ajax({url: `${api_url}/address.json`, success: function(result){
         res = result;
         for (var i = 0; i < res.length; i++) {
-            data.push(res[i])
+            data.push(res[i]);
             var geoUrl = geoCodeUrl(res[i]);
             $.ajax({url: geoUrl, success: function(result){
                 var address = result.results[0].address_components;
@@ -127,7 +128,7 @@ $(document).ready(function(){
                 });
                 var popup = `<p>${temp.name}</p>
                             <p>${temp.cargo}</p>
-                            <button id=${temp.id} class="btn btn-info select-button" onclick="addEle(this)">Select</button>`
+                            <button id=${temp.id} class="btn btn-info select-button" onclick="addEle(this)">Select</button>`;
                 var marker = L.marker([lat, lng], {icon: markerColor}).addTo(mymap)
                             .bindPopup(popup)
                             .on('popupopen', function (e) {
